@@ -1,16 +1,16 @@
 CC=gcc
-CFLAGS=-Iinclude -Wall -Wextra
-SRC=src
-TEST=tests
+CFLAGS=-Ici -Wall -Wextra
+SRC=ci
+TEST=ci
 BUILD=build
 
 all: $(BUILD)/my_program
 
-$(BUILD)/my_program: $(SRC)/main.c $(SRC)/math_utils.c
+$(BUILD)/my_program: $master.c $math_utils.c
 	mkdir -p $(BUILD)
 	$(CC) $(CFLAGS) $^ -o $@
 
-test: $(BUILD)/test_math
+test: $(SRC/test_math
 	$(BUILD)/test_math
 
 $(BUILD)/test_math: $(TEST)/test_math.c $(SRC)/math_utils.c
